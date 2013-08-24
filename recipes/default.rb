@@ -1,4 +1,9 @@
-# install diamond and enable basic collectors
+#
+# Cookbook Name:: diamond
+# Recipe:: default
+#
+
+
 
 service "diamond" do
   action [ :nothing ]
@@ -32,14 +37,3 @@ template "/etc/diamond/diamond.conf" do
     :graphite_ip => graphite_ip
   )
 end
-
-#install basic collector configs
-include_recipe 'diamond::diskusage'
-include_recipe 'diamond::diskspace'
-include_recipe 'diamond::vmstat'
-include_recipe 'diamond::memory'
-include_recipe 'diamond::network'
-include_recipe 'diamond::tcp'
-include_recipe 'diamond::loadavg'
-include_recipe 'diamond::cpu'
-
