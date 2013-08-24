@@ -7,13 +7,13 @@ case node[:platform]
     package "diamond" do
       action :install
       version node.default['diamond']['version']
-      notifies :restart, resources(:service => "diamond")
+      notifies :restart, "service[diamond]"
     end
 
   when "centos", "redhat", "fedora", "amazon", "scientific"
     package "diamond" do
       action :install
       version node.default['diamond']['version']
-      notifies :restart, resources(:service => "diamond")
+      notifies :restart, "service[diamond]"
     end
 end
