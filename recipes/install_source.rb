@@ -10,6 +10,7 @@ when "debian"
   # needed to generate deb package
   package "devscripts"
   package "python-support"
+  package "python-configobj"
   package "python-mock"
   package "cdbs"
 else
