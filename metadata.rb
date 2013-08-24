@@ -7,3 +7,5 @@ version          "1.0.18"
 
 supports         'ubuntu'
 supports         'centos'
+
+depends "build-essential"
