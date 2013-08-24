@@ -18,12 +18,16 @@ end
 if node['diamond']['graphite_server_role'].nil?
   graphite_ip = node['diamond']['graphite_server']
 else
-  graphite_nodes = search(:node, "role:%s" % [node['diamond']['graphite_server_role']])
-  if graphite_nodes.empty?
-    Chef::Log.warn("No nodes returned from search")
-    graphite_ip = node['diamond']['graphite_server']
+  if Chef::Config[:solo]
+    Chef::Log.warn("This recipe uses search. If using solo, set node['diamond']['graphite_server'].")
   else
-    graphite_ip = graphite_nodes[0]["ipaddress"]
+    graphite_nodes = search(:node, "role:%s" % [node['diamond']['graphite_server_role']])
+    if graphite_nodes.empty?
+      Chef::Log.warn("No nodes returned from search")
+      graphite_ip = node['diamond']['graphite_server']
+    else
+      graphite_ip = graphite_nodes[0]["ipaddress"]
+    end
   end
 end
 
