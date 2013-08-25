@@ -1,0 +1,8 @@
+### Options for <%= @params[:name] %>
+enabled = <%= @enabled.to_s %>
+snmp = <%= @snmp.to_s %>
+interval = <%= @interval %>
+splay = <%= @splay %>
+<% @params.each do |k,v| -%>
+<%= k.to_s %> = <%= v %>
+<% end -%>
