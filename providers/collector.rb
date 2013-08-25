@@ -1,6 +1,5 @@
-#Todo - whyrun support
 def whyrun_supported?
-    false
+    true
 end
 
 action :create do
