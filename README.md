@@ -5,6 +5,8 @@ This cookbook installs the Brightcove Diamond metric collector, and configures v
 
 Diamond is a python daemon that collects system metrics and publishes them to [Graphite](https://github.com/BrightcoveOS/Diamond/wiki/handler-GraphiteHandler) (and [others](https://github.com/BrightcoveOS/Diamond/wiki/Handlers)). It is capable of collecting cpu, memory, network, i/o, load and disk metrics.  Additionally, it features an API for implementing custom collectors for gathering metrics from almost any source.
 
+This cookbook was forked from [CBarraford/diamond_cookbook](https://github.com/CBarraford/diamond_cookbook)
+
 LWRPs
 =====
 This cookbook implements collectors as LWRPs. You can supply parameters

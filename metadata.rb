@@ -1,6 +1,6 @@
 name    "diamond"
-maintainer       "Brightcove"
-maintainer_email "cbarraford@brightcove.com"
+maintainer       "Jpopidol"
+maintainer_email "scott@jpopidol.com"
 license          "All rights reserved"
 description      "Installs/Configures diamond"
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
