@@ -40,6 +40,7 @@ def create_collector
         owner "root"
         group "root"
         variables ({
+            :name => new_resource.name,
             :enabled => new_resource.enabled,
             :interval => new_resource.interval,
             :snmp => new_resource.snmp,
