@@ -9,7 +9,8 @@ package "pymongo" do
   action :install
 end
 
-collector_config "MongoDBCollector" do
-  path  node[:diamond][:collectors][:MongoDBCollector][:path]
-  host  node[:diamond][:collectors][:MongoDBCollector][:host]
+diamond_collector "MongoDBCollector" do
+    enabled true
+    path  node[:diamond][:collectors][:MongoDBCollector][:path]
+    host  node[:diamond][:collectors][:MongoDBCollector][:host]
 end
