@@ -29,9 +29,6 @@ def load_current_resource
     @current_resource.interval(new_resource.interval)
     @current_resource.splay(new_resource.splay)
     @current_resource.params(new_resource.params)
-
-    ## If file exists and match?
-    return false
 end
 
 def create_collector
