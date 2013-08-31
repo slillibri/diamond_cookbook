@@ -4,4 +4,5 @@ include_recipe 'diamond::default'
 
 diamond_collector "CPUCollector" do
     enabled true
+    interval 60
 end
