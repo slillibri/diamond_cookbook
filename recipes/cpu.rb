@@ -1,5 +1,8 @@
-# Install the disk space collector config
+# Install the cpu collector config
 
 include_recipe 'diamond::default'
 
-collector_config "CPUCollector"
+diamond_collector "CPUCollector" do
+    enabled true
+    interval 60
+end

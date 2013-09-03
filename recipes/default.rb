@@ -3,13 +3,17 @@
 # Recipe:: default
 #
 
-
-
 service "diamond" do
   action [ :nothing ]
 end
 
-include_recipe "diamond::install_%s" % [node[:diamond][:install_method]]
+if node[:diamond][:install_method] == 'package'
+  include_recipe "diamond::install_package"
+elsif node[:diamond][:install_method] == 'source'
+  include_recipe "diamond::install_source"
+else
+  raise "Unknown or missing install_method"
+end
 
 service "diamond" do
   action [ :enable ]

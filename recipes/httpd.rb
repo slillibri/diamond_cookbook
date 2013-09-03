@@ -2,8 +2,8 @@
 
 include_recipe 'diamond::default'
 
-collector_config "HttpdCollector" do
-  path         node[:diamond][:collectors][:HttpdCollector][:path]
-  url          node[:diamond][:collectors][:HttpdCollector][:url]
+dimond_collector "HttpdCollector" do
+    enabled true
+    params node[:diamond][:collectors][:HttpdCollector]
 end
 

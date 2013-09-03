@@ -1,6 +1,7 @@
 # Install the nfs collector config
 include_recipe 'diamond::default'
 
-collector_config "NFSServerCollector" do
-    path    node[:diamond][:collectors][:NFSServerCollector][:path]
+diamond_collector "NFSServerCollector" do
+    enabled true
+    params    node[:diamond][:collectors][:NFSServerCollector]
 end
