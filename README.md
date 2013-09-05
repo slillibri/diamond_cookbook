@@ -7,6 +7,10 @@ Diamond is a python daemon that collects system metrics and publishes them to [G
 
 This cookbook was forked from [CBarraford/diamond_cookbook](https://github.com/CBarraford/diamond_cookbook)
 
+Attributes
+=======
+
+
 LWRPs
 =====
 This cookbook implements collectors as LWRPs. You can supply parameters

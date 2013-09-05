@@ -4,6 +4,7 @@ default[:diamond][:graphite_server] = "graphite"
 default[:diamond][:path_prefix] = "servers"
 default[:diamond][:interval] = "60"
 default[:diamond][:handlers] = "diamond.handler.graphite.GraphiteHandler, diamond.handler.archive.ArchiveHandler"
+default[:diamond][:hostname_method] = 'smart'
 case node[:platform]
   when "ubuntu","debian"
     default[:diamond][:version] = '3.3.568'
