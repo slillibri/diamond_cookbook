@@ -28,12 +28,26 @@ Paramters outside of ```[name, enabled, interval, snmp, splay]``` can be set usi
 
 Defaults
 -------
+These are the defaults for the diamond_collector LWRP
+
 ```
   enabled false
   snmp     false
   interval  300
   splay      0
 ```
+
+The following collectors are enabled by default in Diamond:
+
+* CPUCollector
+* DiskUsageCollector
+* JCollectdCollector
+* LoadAvgCollector
+* MemoryCollector
+* SockstatCollector
+* VMStatCollector
+
+To disable these you will need to create a resource for the collector and set enabled: False.
 
 USAGE
 =====
