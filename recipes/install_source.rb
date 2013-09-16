@@ -1,8 +1,8 @@
 include_recipe "build-essential"
 
-case node['platform_family']
+case node[:platform_family]
 when "debian"
-  if node['platform'] == "ubuntu" && node['platform_version'].to_f < 10.10
+  if node[:platform] == "ubuntu" && node[:platform_version].to_f < 10.10
     package "git-core"
   else
     package "git"
@@ -10,6 +10,7 @@ when "debian"
   # needed to generate deb package
   package "devscripts"
   package "python-support"
+  package "python-configobj"
   package "python-mock"
   package "cdbs"
 else
@@ -23,7 +24,7 @@ git "/usr/local/share/diamond_src" do
   action :sync
 end
 
-case node['platform_family']
+case node[:platform_family]
 when "debian"
   execute "install diamond" do
     command "cd /usr/local/share/diamond_src/;make builddeb;dpkg -i build/diamond_*_all.deb"

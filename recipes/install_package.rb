@@ -6,14 +6,14 @@ case node[:platform]
 
     package "diamond" do
       action :install
-      version node['diamond']['version']
-      notifies :restart, resources(:service => "diamond")
+      version node[:diamond][:version]
+      notifies :restart, "service[diamond]"
     end
 
   when "centos", "redhat", "fedora", "amazon", "scientific"
     package "diamond" do
       action :install
-      version node['diamond']['version']
-      notifies :restart, resources(:service => "diamond")
+      version node[:diamond][:version]
+      notifies :restart, "service[diamond]"
     end
 end

@@ -2,4 +2,6 @@
 
 include_recipe 'diamond::default'
 
-collector_config "MemoryCollector"
+diamond_collector "MemoryCollector" do
+    enabled true
+end

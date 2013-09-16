@@ -2,6 +2,7 @@
 
 include_recipe 'diamond::default'
 
-collector_config "XenCollector" do
-  path  node[:diamond][:collectors][:XenCollector][:path]
+diamond_collector "XenCollector" do
+    enabled true
+    params node[:diamond][:collectors][:XenCollector]
 end
