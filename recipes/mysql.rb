@@ -4,13 +4,10 @@ include_recipe 'diamond::default'
 
 #load data bag
 mysql = Chef::EncryptedDataBagItem.load("passwords", "mysql")
+mysql_params = node[:diamond][:collectors][:MySQLCollector].merge(user: mysql['username'], passwd: mysql['password'])
 
-collector_config "MySQLCollector" do
-  path    node[:diamond][:collectors][:MySQLCollector][:path]
-  host    node[:diamond][:collectors][:MySQLCollector][:host]
-  port    node[:diamond][:collectors][:MySQLCollector][:port]
-  db      node[:diamond][:collectors][:MySQLCollector][:db]
-  user    mysql['username']
-  passwd  mysql['password']
+diamond_collector "MySQLCollector" do
+    enabled true
+    params mysql_params
 end
 

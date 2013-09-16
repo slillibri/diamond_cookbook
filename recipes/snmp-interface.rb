@@ -4,14 +4,10 @@ include_recipe 'diamond::default'
 
 #load databag
 databag = Chef::EncryptedDataBagItem.load("passwords", "snmp")
+snmp_params = node[:diamond][:collectors][:SNMPInterfaceCollector].merge(community: databag['community'])
 
-collector_config "SNMPInterfaceCollector" do
-  path      node[:diamond][:collectors][:SNMPInterfaceCollector][:path]
-  snmp      true
-  interval  node[:diamond][:collectors][:SNMPInterfaceCollector][:interval]
-  timeout   node[:diamond][:collectors][:SNMPInterfaceCollector][:timeout]
-  retries   node[:diamond][:collectors][:SNMPInterfaceCollector][:retries]
-  port      node[:diamond][:collectors][:SNMPInterfaceCollector][:port]
-  community databag['community']
-  devices   node[:diamond][:collectors][:SNMPInterfaceCollector][:devices]
+diamond_collector "SNMPInterfaceCollector" do
+    enabled true
+    snmp      true
+    params snmp_params
 end

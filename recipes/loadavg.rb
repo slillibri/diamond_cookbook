@@ -2,4 +2,6 @@
 
 include_recipe 'diamond::default'
 
-collector_config "LoadAverageCollector"
+diamond_collector "LoadAverageCollector" do
+    enabled true
+end

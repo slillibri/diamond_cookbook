@@ -1,9 +1,10 @@
 # Install the network collector config
 
 include_recipe 'diamond::default'
+network_params = node[:diamond][:collectors][:NetworkCollector]
 
-collector_config "NetworkCollector" do
-  interfaces node[:diamond][:collectors][:NetworkCollector][:interfaces]
-  byte_unit node[:diamond][:collectors][:NetworkCollector][:byte_unit]
+diamond_collector "NetworkCollector" do
+    enabled true
+    interval 10
+    params network_params
 end
-

@@ -2,6 +2,7 @@
 
 include_recipe 'diamond::default'
 
-collector_config "VarnishCollector" do
-  path  node[:diamond][:collectors][:VarnishCollector][:path]
+diamond_collector "VarnishCollector" do
+    enabled true
+    params node[:diamond][:collectors][:VarnishCollector]
 end

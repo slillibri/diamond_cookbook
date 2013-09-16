@@ -2,7 +2,8 @@
 
 include_recipe 'diamond::default'
 
-collector_config "TCPCollector" do
-  allowed_names node[:diamond][:collectors][:TCPCollector][:allowed_names] 
+diamond_collector "TCPCollector" do
+    enabled true
+    params node[:diamond][:collectors][:TCPCollector]
 end
 
