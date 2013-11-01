@@ -45,8 +45,9 @@ def create_collector
             :params => new_resource.params
         })
         mode 00644
+        cookbook 'diamond'
         notifies :restart, "service[diamond]"
-    end    
+    end
 end
 
 def delete_collector
