@@ -54,6 +54,9 @@ batch = 100
 [collectors]
 [[default]]
 path_prefix = <%= node['diamond']['path_prefix'] %>
+<% if ! node['diamond']['hostname'].nil? %>
+hostname = <%= node['diamond']['hostname'] %>
+<% end %>
 hostname_method = <%= node['diamond']['hostname_method'] %>
 interval = <%= node['diamond']['interval'] %>
 [loggers]
